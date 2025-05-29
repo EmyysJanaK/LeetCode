@@ -1,3 +1,5 @@
+package Algorithms.TwoSum;
+
 import java.util.HashMap;
 
 class Solution {
