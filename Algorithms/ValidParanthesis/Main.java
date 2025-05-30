@@ -5,8 +5,10 @@ public class Main {
         Solution solution = new Solution();
         
         String test1 = "()";
+        String test2 = "([{}])";
      
 
         System.out.println(solution.isValid(test1));
+        System.out.println(solution.isValid(test2));
     }
 }
