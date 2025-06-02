@@ -6,9 +6,10 @@ public class Main {
         
         String test1 = "()";
         String test2 = "([{}])";
+        String test3 = "([)]"; 
      
 
         System.out.println(solution.isValid(test1));
-        System.out.println(solution.isValid(test2));
+        System.out.println(solution.isValid(test3));
     }
 }
