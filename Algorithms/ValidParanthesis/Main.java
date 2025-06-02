@@ -5,7 +5,7 @@ public class Main {
         Solution solution = new Solution();
         
         String test1 = "()";
-        String test2 = "([{}])";
+        // String test2 = "([{}])";
         String test3 = "([)]"; 
      
 
