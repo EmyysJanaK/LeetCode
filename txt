@@ -1,0 +1,57 @@
+I am working in NLP domain for 8+ years 
+You SHOULD learn these basics first 👇
+
+Start here before chasing the hype 👇
+
+1️⃣ 𝗙𝗼𝘂𝗻𝗱𝗮𝘁𝗶𝗼𝗻𝘀
+↳ Mathematics for Machine Learning [Book]
+↳ Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow [Book]
+↳ (Optional) Introduction to Statistical Learning [Book] — for statistics understanding
+
+2️⃣ 𝗕𝗮𝘀𝗶𝗰 𝗡𝗟𝗣 𝗖𝗼𝗻𝗰𝗲𝗽𝘁𝘀
+↳ Stopwords, Stemming, Lemmatization
+↳ Bag of Words
+↳ TF-IDF
+↳ BM25
+↳ Word2Vec
+↳ N-grams
+↳ Named Entity Recognition (NER)
+↳ Tokenization
+↳ Part-of-Speech (POS) Tagging
+
+3️⃣ 𝗚𝗲𝘁 𝗙𝗮𝗺𝗶𝗹𝗶𝗮𝗿 𝘄𝗶𝘁𝗵 𝗙𝗿𝗮𝗺𝗲𝘄𝗼𝗿𝗸𝘀
+↳ NLTK
+↳ SpaCy
+↳ PyTorch (important, more popular now)
+↳ (Optional) Hugging Face basics
+
+4️⃣ 𝗨𝗻𝗱𝗲𝗿𝘀𝘁𝗮𝗻𝗱 𝗘𝗺𝗯𝗲𝗱𝗱𝗶𝗻𝗴𝘀
+↳ Word2Vec
+↳ GloVe
+↳ FastText
+(Understand pre-transformer embeddings properly)
+
+5️⃣ 𝗗𝗶𝘃𝗲 𝗶𝗻𝘁𝗼 𝗧𝗿𝗮𝗻𝘀𝗳𝗼𝗿𝗺𝗲𝗿𝘀 & 𝗠𝗼𝗱𝗲𝗹𝘀
+↳ Understand how Transformers work
+↳ Explore BERT, ModernBERT, DistilBERT, etc.
+↳ Learn Sentence-Transformers & Hugging Face
+(✍️ Bonus: Understand bi-encoders for retrieval)
+
+6️⃣ 𝗗𝗶𝘃𝗲 𝗶𝗻𝘁𝗼 𝗘𝘃𝗮𝗹𝘂𝗮𝘁𝗶𝗼𝗻𝘀
+↳ BLEU Score, ROUGE Score, Perplexity, etc.
+↳ Accuracy, Precision, Recall, F1 Score, etc.
+↳ Semantic Similarity evaluations (Cosine similarity, embedding-based metrics)
+
+7️⃣ 𝗘𝘅𝗽𝗹𝗼𝗿𝗲 𝗙𝗶𝗻𝗲-𝘁𝘂𝗻𝗶𝗻𝗴 𝗼𝗳 𝗦𝗺𝗮𝗹𝗹 𝗟𝗮𝗻𝗴𝘂𝗮𝗴𝗲 𝗠𝗼𝗱𝗲𝗹𝘀 (𝗲.𝗴., 𝗕𝗘𝗥𝗧)
+↳ Fine-tune for classification
+↳ Fine-tune for question-answering
+↳ Fine-tune for domain-specific embeddings
+↳ Understand task-specific heads (classification/QA)
+↳ Learn fine-tuning best practices: LR schedules, early stopping, regularization
+
+✅ Master these concepts.
+✅ Build 2-3 simple projects using them.
+✅ You’ll be ahead of most people chasing fancy stuff.
+
+Keep it simple. Keep it strong. 💪
+Do you agree?
