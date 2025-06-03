@@ -2,14 +2,12 @@ package MergeTwoSortedList;
 
 public class Solution {
     public ListNode mergeTwoLists (ListNode list1, ListNode list2) {
-        switch (list1 == null ? 0 : list2 == null ? 1 : 2) {
-            case 0: return list2;
-            case 1: return list1;
-            default: break;
-              
-            case 2:
-        ListNode head = new ListNode();
-        ListNode current = head;
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+
+        ListNode mergedHead = new ListNode();
+        ListNode current = mergedHead;
+
         while (list1 != null && list2 != null) {
             if (list1.value < list2.value) {
                 current.next = list1;
@@ -20,23 +18,15 @@ public class Solution {
             }
             current = current.next;
         }
-        switch (list1 == null ? 0 : list2 == null ? 1 : 2) {
-            case 0:
-                current.next = list2;
-                break;
-        
-            default:
-                break;
-            case 1:
-                current.next = list1;
-                break;
-        
-            }
 
-    
-        return head.next;
-            }
+        if (list1 != null) {
+            current.next = list1;
+        } else {
+            current.next = list2;
         }
+
+        return mergedHead.next;    
     }
+    
 }
 
