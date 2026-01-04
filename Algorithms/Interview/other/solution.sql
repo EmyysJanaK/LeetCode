@@ -4,7 +4,7 @@
 
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY,
-    FirstName VARCHAR(50),
+    FirstName VARCHAR(50) ,
     LastName VARCHAR(50),
     HireDate DATE,
 );
@@ -20,7 +20,10 @@ CREATE TABLE EmployeeProducts (
     PRIMARY KEY (EmployeeID, ProductID),
     FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+
 );
+CREATE index idx_employee_id on EmployeeProducts(EmployeeID);
+CREATE index idx_product_id on EmployeeProducts(ProductID);
 -- The Employees table stores employee details.
 -- The Products table stores product details.
 -- The EmployeeProducts table is a junction table that establishes a many-to-many relationship between employees and products.
