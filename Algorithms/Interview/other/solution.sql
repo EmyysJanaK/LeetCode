@@ -23,3 +23,4 @@ CREATE TABLE EmployeeProducts (
 );
 -- The Employees table stores employee details.
 -- The Products table stores product details.
+-- The EmployeeProducts table is a junction table that establishes a many-to-many relationship between employees and products.
