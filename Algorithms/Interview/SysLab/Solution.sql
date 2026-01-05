@@ -71,3 +71,74 @@ VALUES (1, 'John', 'Smith', 60000.00);
 -- Indexes improve read/query performance but can slow down write operations due to the overhead of maintaining the index structure.
 -- Additionally, indexes consume extra storage space, which can be a consideration in large databases. 
 
+
+-- Transactions in databases:-- A transaction in a database is a sequence of one or more SQL operations that are executed as a single unit of work. 
+-- Transactions are used to ensure data integrity and consistency, especially in multi-user environments where multiple users may be accessing and modifying the database simultaneously.
+-- A transaction has the following properties, often referred to as ACID properties:
+-- 1. Atomicity: This property ensures that all operations within a transaction are treated as a single unit. 
+        ---           If any operation fails, the entire transaction is rolled back, and the database remains unchanged.
+-- 2. Consistency: This property ensures that a transaction brings the database from one valid state to another valid state, maintaining all defined rules and constraints.
+-- 3. Isolation: This property ensures that the operations of one transaction are isolated from the operations of other transactions. 
+        ---           Changes made by one transaction are not visible to other transactions until the transaction is committed. 
+-- 4. Durability: This property ensures that once a transaction is committed, its changes are permanent and will survive any subsequent system failures.
+-- Example of a transaction in SQL:
+BEGIN TRANSACTION;
+    UPDATE Accounts
+    SET Balance = Balance - 100
+    WHERE AccountID = 1;
+
+    UPDATE Accounts
+    SET Balance = Balance + 100
+    WHERE AccountID = 2;
+COMMIT;
+-- In this example, the transaction transfers $100 from AccountID 1 to AccountID 2.
+-- If both UPDATE operations are successful, the transaction is committed, and the changes are saved to the database.
+-- If either operation fails, the transaction can be rolled back to ensure that no partial changes are made to the database.
+ROLLBACK;
+
+-- what if accountid 3 will transfer money to accountid 2 at the same time?
+-- In a multi-user environment, if AccountID 3 is transferring money to AccountID 2 at the same time as the transaction involving AccountID 1 and AccountID 2,
+-- the database management system (DBMS) uses isolation mechanisms to ensure that the transactions do not interfere with each other.
+-- This is typically achieved through locking mechanisms, where the DBMS locks the rows being modified by one transaction to prevent other transactions from accessing them until the first transaction is completed (committed or rolled back).
+-- For example, when the first transaction updates the balance of AccountID 2, it may acquire a lock on that row.
+-- If the second transaction tries to update the same row (AccountID 2) while the
+-- first transaction is still in progress, it will be blocked until the first transaction is completed.
+-- This ensures that the balance of AccountID 2 remains consistent and accurate, regardless of the concurrent transactions.
+--implementation of isolation levels in sql?
+-- SQL databases typically support several isolation levels that define the degree to which transactions are isolated from each other.
+-- The most common isolation levels are:
+-- 1. Read Uncommitted: This is the lowest isolation level, where transactions can read uncommitted changes made by other transactions. 
+        ---           This can lead to dirty reads, where a transaction reads data that may later be rolled back.
+-- 2. Read Committed: In this isolation level, transactions can only read committed changes made by other transactions. 
+        ---           This prevents dirty reads but can still allow non-repeatable reads, where a transaction reads the same data multiple times and gets different results if another transaction modifies that data in between.
+-- 3. Repeatable Read: This isolation level ensures that if a transaction reads a row, it will get the same value if it reads that row again, even if other transactions modify that row in the meantime. 
+        ---           This prevents non-repeatable reads but can still allow phantom reads, where new rows
+-- are added by other transactions that match the search criteria of the first transaction.
+-- 4. Serializable: This is the highest isolation level, where transactions are completely isolated from each other. 
+        ---           It ensures that the results of concurrent transactions are the same as if the transactions were executed serially, one after the other. 
+        ---           This prevents dirty reads, non-repeatable reads, and phantom reads but can lead to reduced concurrency and potential performance issues.
+-- Example of setting isolation levels in SQL:
+
+-- Set the isolation level to Read Committed
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+BEGIN TRANSACTION;
+    -- Transaction operations go here
+    UPDATE Accounts
+    SET Balance = Balance - 50
+    WHERE AccountID = 1;
+    UPDATE Accounts
+    SET Balance = Balance + 50
+    WHERE AccountID = 2;
+COMMIT;
+-- Set the isolation level to Serializable
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+BEGIN TRANSACTION;
+    -- Transaction operations go here
+    UPDATE Accounts
+    SET Balance = Balance + 50
+    WHERE AccountID = 2;
+
+ROLLBACK;
+-- The specific syntax for setting isolation levels may vary depending on the database management system (DBMS) being used.
+
+
