@@ -215,3 +215,41 @@ class DefaultExample {
 }
 */
 
+//There is a refresh button in a page and if you click the button the details of a child component should be fetched again. How do you handle it in react.
+// Solution: In React, you can handle the refresh functionality by using state and props.
+/*
+
+1. Create a state variable in the parent component to track the refresh action.
+2. Pass a function as a prop to the child component that updates the state variable when the refresh button is clicked.
+3. In the child component, use the useEffect hook to listen for changes in the refresh prop and fetch the details again when it changes.
+
+import React, { useState, useEffect } from 'react';
+
+function ParentComponent() {
+    const [refresh, setRefresh] = useState(false);
+
+    const handleRefresh = () => {
+        setRefresh(!refresh); // Toggle refresh state
+    };
+
+    return (
+        <div>
+            <button onClick={handleRefresh}>Refresh</button>
+            <ChildComponent refresh={refresh} />
+        </div>
+    );
+}
+function ChildComponent({ refresh }) {
+    useEffect(() => {
+        // Fetch details here
+        console.log('Fetching details...');
+    }, [refresh]); // Re-fetch when refresh prop changes
+
+    return <div>Child Component Details</div>;
+}
+
+
+*/
+
+
+
