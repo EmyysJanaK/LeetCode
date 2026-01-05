@@ -1,6 +1,6 @@
 package Algorithms.LongestCommonPrefix;
 
-public class Solution {
+public class Solutionq {
     public String longestCommanPrefix(String[] strings) {
         if (strings == null || strings.length == 0) {
             return "";
