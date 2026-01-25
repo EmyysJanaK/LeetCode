@@ -1,5 +1,7 @@
 package Interview.SysLab;
 
+import java.util.Stack;
+
 // Explain all the concepts about Object oriented programming in Java
 
 // Explain all the concepts about Object oriented programming in Java
@@ -78,5 +80,35 @@ class Trie {
 // java.util.List<String> results = trie.searchByPrefix("crow");
 // System.out.println(results); // Output: [crowd, crowded, crown]
 
+//build a queue using stack
+class MyQueue {
+    private java.util.Stack<Integer> stack1 = new Stack<>();
+    private java.util.Stack<Integer> stack2 = new Stack<>();
 
-
+    // Push element x to the back of queue
+    public void enqueue(int x) {
+        stack1.push(x);
+    }
+    // Remove the element from in front of queue and return that element
+    public int dequeue() {
+        if (stack2.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.pop();
+    }
+    // Get the front element
+    public int peek() {
+        if (stack2.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.peek();
+    }
+    // Return whether the queue is empty
+    public boolean isEmpty() {
+        return stack1.isEmpty() && stack2.isEmpty();
+    }
+}

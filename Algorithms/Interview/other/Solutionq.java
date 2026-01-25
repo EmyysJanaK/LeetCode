@@ -38,7 +38,7 @@ public class Solutionq {
                 break;
             }
         }
-        List<String> travelOrder = new java.util.ArrayList<>();
+        List<String> travelOrder = new java.util.ArrayList<>(); 
         while (startCountry != null) {
             travelOrder.add(startCountry);
             startCountry = travelMap.get(startCountry);
@@ -140,7 +140,8 @@ class MyQueue {
         stack1.push(x); // Always push to stack1 
     }
     
-    //
+    // Removes the element from in front of queue and returns that element. 
+    // If stack2 is empty, transfer all elements from stack1 to stack2
     public int pop() {
         if (stack2.isEmpty()) {
             while (!stack1.isEmpty()) {
@@ -150,6 +151,7 @@ class MyQueue {
         return stack2.pop();
     }
     
+    // Get the front element. If stack2 is empty, transfer all elements from stack1 to stack2
     public int peek() {
         if (stack2.isEmpty()) {
             while (!stack1.isEmpty()) {

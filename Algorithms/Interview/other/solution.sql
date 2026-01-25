@@ -58,3 +58,11 @@ WHERE count(ep.EmployeeID) > 9
 GROUP BY p.ProductName;
 --Write SQL Query to find the product names which have more than 9 employees working on it.
 
+
+--number of rows in a table (efficiently)
+SELECT count(*) AS total_rows
+FROM your_table_name;
+
+SELECT reltuples::BIGINT AS approximate_row_count -- reltuples -estimate of numberof rows  :BIGINT  to cast the result to BIGINT
+FROM pg_class -- pg_class - system catalog table that stores information about tables and indexes
+WHERE relname = 'your_table_name';

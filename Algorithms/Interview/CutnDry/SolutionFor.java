@@ -48,8 +48,8 @@ public class SolutionFor {
         java.util.Map<Integer, Integer> map = new java.util.HashMap<>(); // eg {2:0, 7:1, 11:2, 15:3}
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
-            if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
+            if (map.containsKey(complement)) {// check if complement exists in the map
+                return new int[]{map.get(complement), i};// return indices of the two numbers
             }
             map.put(nums[i], i); // Store the number and its index in the map
         }
@@ -77,7 +77,8 @@ public class SolutionFor {
         Animal myAnimal = new Dog();
         myAnimal.sound(); // Output: Dog barks
     } 
-    // why this is called runtime polymorphism because the method to be called is determined at runtime based on the actual object type (Dog) rather than the reference type (Animal).
+    // why this is called runtime polymorphism because the method to be called is determined 
+    // at runtime based on the actual object type (Dog) rather than the reference type (Animal).
 
 
 }
@@ -103,3 +104,67 @@ class MathOperations {
         return a + b;
     }
 }
+//why called compile-time polymorphism because the method to be called is determined
+// at compile-time based on the method signature (parameter types and number).
+
+//singleton design pattern in java?
+// The Singleton design pattern in Java is a creational design pattern that ensures a class has only
+// one instance and provides a global point of access to that instance. This is useful when exactly one
+// object is needed to coordinate actions across the system, such as in logging, configuration management,
+
+class Singleton {
+    private static Singleton instance;
+
+    // Private constructor to prevent instantiation from other classes
+    private Singleton() {
+    }
+
+    // Public method to provide access to the single instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+//observer design pattern in java?
+// The Observer design pattern in Java is a behavioral design pattern that establishes a one-to-many
+// dependency between objects, allowing multiple observer objects to be notified and updated automatically
+// when the state of a subject object changes. This pattern is useful for implementing event-driven systems
+// where changes in one object need to be communicated to multiple dependent objects without tight coupling.
+// Example:
+class Subject {
+    private java.util.List<Observer> observers = new java.util.ArrayList<>();
+    private int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+        notifyAllObservers();
+    }
+
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void notifyAllObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+}
+
+// explain how garbage collection works in java?
+// Garbage collection in Java is an automatic memory management process that identifies and
+// reclaims memory occupied by objects that are no longer reachable or needed by the program.
+// The Java Virtual Machine (JVM) uses a garbage collector to periodically scan the heap memory
+// for objects that are no longer referenced by any part of the program. When such objects are found,
+// the garbage collector frees up the memory they occupy, making it available for new object allocations.
+// Java primarily uses two garbage collection algorithms: Mark-and-Sweep and Generational Garbage Collection.
+// In the Mark-and-Sweep algorithm, the garbage collector marks all reachable objects starting from
+// root references and then sweeps through the heap to collect unmarked objects. Generational Garbage 
+// Collection divides objects into generations based on their age, allowing for more efficient collection
+// of short-lived objects while minimizing the impact on long-lived objects. Overall, garbage collection
